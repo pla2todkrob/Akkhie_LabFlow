@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Configuration;
 using System.Data.SqlClient;
 using System.Threading.Tasks;
 
@@ -54,7 +55,7 @@ namespace LabFlow.Models
     // ====================================================================================
     public static class DatabaseHelper
     {
-        private static readonly string connectionString = "Server=58.82.140.99;Database=BWG_AWSDB;User Id=sa;Password=Akkhie06;";
+        private static readonly string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
 
         // --- เปลี่ยน Return type เป็น Task<string> ---
         public static async Task<string> GetWasteDataID(string wasteNo)
