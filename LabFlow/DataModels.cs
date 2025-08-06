@@ -10,44 +10,84 @@ namespace LabFlow.Models
     // ====================================================================================
     public class WasteDataLabModel
     {
-        // --- เปลี่ยนจาก int เป็น string ---
-        public string WasteDataID { get; set; }
-        public string AnalysisNo { get; set; }
-        public string SamplingBy { get; set; }
-        public string SamplingByNo { get; set; }
-        public string FreeChlorine { get; set; } // "Y" or "N"
-        public string Nitrite { get; set; }      // "Y" or "N"
-        public string Cyanide { get; set; }      // "Y" or "N"
-        public string Physicalstate { get; set; }
-        public string Viscosity { get; set; }
-        public string Bulkdensity { get; set; }
-        public string HeatingValue { get; set; }
-        public string NCVValue { get; set; }
-        public string MoistureContent { get; set; }
-        public string WaterContent { get; set; }
-        public string AshContent { get; set; }
-        public string CL { get; set; }
-        public string F { get; set; }
-        public string S { get; set; }
-        public string SludgeContent { get; set; }
-        public string SolidContent { get; set; }
-        public string NitrogenContent { get; set; }
-        public string DrybasisContent { get; set; }
-        public string HeavyAs { get; set; }
-        public string HeavyCd { get; set; }
-        public string HeavyCr { get; set; }
-        public string HeavyHg { get; set; }
-        public string SS { get; set; }
-        public string Acidity { get; set; }
-        public string Alkalinity { get; set; }
-        public string HeavyPb { get; set; }
-        public string TDS { get; set; }
-        public string Ni { get; set; }
-        public string Mn { get; set; }
-        public string Zn { get; set; }
-        public string Cu { get; set; }
-        public string HeavyFe { get; set; }
-        public string Concentrate { get; set; }
+        // --- Backing fields for properties ---
+        private string _wasteDataID;
+        private string _analysisNo;
+        private string _samplingBy;
+        private string _samplingByNo;
+        private string _freeChlorine;
+        private string _nitrite;
+        private string _cyanide;
+        private string _physicalstate;
+        private string _viscosity;
+        private string _bulkdensity;
+        private string _heatingValue;
+        private string _ncvValue;
+        private string _moistureContent;
+        private string _waterContent;
+        private string _ashContent;
+        private string _cl;
+        private string _f;
+        private string _s;
+        private string _sludgeContent;
+        private string _solidContent;
+        private string _nitrogenContent;
+        private string _drybasisContent;
+        private string _heavyAs;
+        private string _heavyCd;
+        private string _heavyCr;
+        private string _heavyHg;
+        private string _ss;
+        private string _acidity;
+        private string _alkalinity;
+        private string _heavyPb;
+        private string _tds;
+        private string _ni;
+        private string _mn;
+        private string _zn;
+        private string _cu;
+        private string _heavyFe;
+        private string _concentrate;
+
+        // --- Public properties with trimming setters ---
+        // ใช้ ?.Trim() เพื่อป้องกัน NullReferenceException ถ้าค่าที่เข้ามาเป็น null
+        public string WasteDataID { get => _wasteDataID; set => _wasteDataID = value?.Trim(); }
+        public string AnalysisNo { get => _analysisNo; set => _analysisNo = value?.Trim(); }
+        public string SamplingBy { get => _samplingBy; set => _samplingBy = value?.Trim(); }
+        public string SamplingByNo { get => _samplingByNo; set => _samplingByNo = value?.Trim(); }
+        public string FreeChlorine { get => _freeChlorine; set => _freeChlorine = value?.Trim(); }
+        public string Nitrite { get => _nitrite; set => _nitrite = value?.Trim(); }
+        public string Cyanide { get => _cyanide; set => _cyanide = value?.Trim(); }
+        public string Physicalstate { get => _physicalstate; set => _physicalstate = value?.Trim(); }
+        public string Viscosity { get => _viscosity; set => _viscosity = value?.Trim(); }
+        public string Bulkdensity { get => _bulkdensity; set => _bulkdensity = value?.Trim(); }
+        public string HeatingValue { get => _heatingValue; set => _heatingValue = value?.Trim(); }
+        public string NCVValue { get => _ncvValue; set => _ncvValue = value?.Trim(); }
+        public string MoistureContent { get => _moistureContent; set => _moistureContent = value?.Trim(); }
+        public string WaterContent { get => _waterContent; set => _waterContent = value?.Trim(); }
+        public string AshContent { get => _ashContent; set => _ashContent = value?.Trim(); }
+        public string CL { get => _cl; set => _cl = value?.Trim(); }
+        public string F { get => _f; set => _f = value?.Trim(); }
+        public string S { get => _s; set => _s = value?.Trim(); }
+        public string SludgeContent { get => _sludgeContent; set => _sludgeContent = value?.Trim(); }
+        public string SolidContent { get => _solidContent; set => _solidContent = value?.Trim(); }
+        public string NitrogenContent { get => _nitrogenContent; set => _nitrogenContent = value?.Trim(); }
+        public string DrybasisContent { get => _drybasisContent; set => _drybasisContent = value?.Trim(); }
+        public string HeavyAs { get => _heavyAs; set => _heavyAs = value?.Trim(); }
+        public string HeavyCd { get => _heavyCd; set => _heavyCd = value?.Trim(); }
+        public string HeavyCr { get => _heavyCr; set => _heavyCr = value?.Trim(); }
+        public string HeavyHg { get => _heavyHg; set => _heavyHg = value?.Trim(); }
+        public string SS { get => _ss; set => _ss = value?.Trim(); }
+        public string Acidity { get => _acidity; set => _acidity = value?.Trim(); }
+        public string Alkalinity { get => _alkalinity; set => _alkalinity = value?.Trim(); }
+        public string HeavyPb { get => _heavyPb; set => _heavyPb = value?.Trim(); }
+        public string TDS { get => _tds; set => _tds = value?.Trim(); }
+        public string Ni { get => _ni; set => _ni = value?.Trim(); }
+        public string Mn { get => _mn; set => _mn = value?.Trim(); }
+        public string Zn { get => _zn; set => _zn = value?.Trim(); }
+        public string Cu { get => _cu; set => _cu = value?.Trim(); }
+        public string HeavyFe { get => _heavyFe; set => _heavyFe = value?.Trim(); }
+        public string Concentrate { get => _concentrate; set => _concentrate = value?.Trim(); }
     }
 
     // ====================================================================================
@@ -57,7 +97,6 @@ namespace LabFlow.Models
     {
         private static readonly string connectionString = ConfigurationManager.ConnectionStrings["DBConnection"].ConnectionString;
 
-        // --- เปลี่ยน Return type เป็น Task<string> ---
         public static async Task<string> GetWasteDataID(string wasteNo)
         {
             string wasteDataId = string.Empty;
@@ -71,14 +110,12 @@ namespace LabFlow.Models
                 object result = await cmd.ExecuteScalarAsync();
                 if (result != null && result != DBNull.Value)
                 {
-                    // --- เปลี่ยนการแปลงค่าเป็น .ToString() ---
                     wasteDataId = result.ToString();
                 }
             }
             return wasteDataId;
         }
 
-        // --- เปลี่ยน Parameter เป็น string ---
         public static async Task<WasteDataLabModel> GetWasteDataLab(string wasteDataId)
         {
             WasteDataLabModel labData = null;
@@ -95,7 +132,6 @@ namespace LabFlow.Models
                     {
                         labData = new WasteDataLabModel
                         {
-                            // --- อ่านค่า WasteDataID เป็น string ---
                             WasteDataID = reader["WasteDataID"]?.ToString(),
                             AnalysisNo = reader["AnalysisNo"]?.ToString(),
                             SamplingBy = reader["SamplingBy"]?.ToString(),
@@ -127,10 +163,10 @@ namespace LabFlow.Models
                             Alkalinity = reader["Alkalinity"]?.ToString(),
                             HeavyPb = reader["HeavyPb"]?.ToString(),
                             TDS = reader["Cu"]?.ToString(),
+                            Cu = reader["Cut"]?.ToString(),
                             Ni = reader["Ni"]?.ToString(),
                             Mn = reader["Mn"]?.ToString(),
                             Zn = reader["Zn"]?.ToString(),
-                            Cu = reader["Cut"]?.ToString(),
                             HeavyFe = reader["HeavyFe"]?.ToString(),
                             Concentrate = reader["Concentrate"]?.ToString()
                         };
@@ -166,7 +202,6 @@ namespace LabFlow.Models
 
         private static void AddParameters(SqlCommand cmd, WasteDataLabModel data)
         {
-            // --- ไม่มีการเปลี่ยนแปลงในส่วนนี้ แต่ตอนนี้ WasteDataID จะถูกส่งเป็น string ---
             cmd.Parameters.AddWithValue("@WasteDataID", data.WasteDataID);
             cmd.Parameters.AddWithValue("@AnalysisNo", (object)data.AnalysisNo ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@SamplingBy", (object)data.SamplingBy ?? DBNull.Value);
@@ -197,11 +232,11 @@ namespace LabFlow.Models
             cmd.Parameters.AddWithValue("@Acidity", (object)data.Acidity ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@Alkalinity", (object)data.Alkalinity ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@HeavyPb", (object)data.HeavyPb ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@TDS", (object)data.TDS ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Cu", (object)data.TDS ?? DBNull.Value);
+            cmd.Parameters.AddWithValue("@Cut", (object)data.Cu ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@Ni", (object)data.Ni ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@Mn", (object)data.Mn ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@Zn", (object)data.Zn ?? DBNull.Value);
-            cmd.Parameters.AddWithValue("@Cu", (object)data.Cu ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@HeavyFe", (object)data.HeavyFe ?? DBNull.Value);
             cmd.Parameters.AddWithValue("@Concentrate", (object)data.Concentrate ?? DBNull.Value);
         }
@@ -209,13 +244,13 @@ namespace LabFlow.Models
         private static string GetInsertQuery()
         {
             return @"INSERT INTO tbWasteDataLab (WasteDataID, AnalysisNo, SamplingBy, SamplingByNo, FreeChlorine, Nitrite, Cyanide, Physicalstate, Viscosity, Bulkdensity, HeatingValue, NCVValue, MoistureContent, WaterContent, AshContent, CL, F, S, SludgeContent, SolidContent, NitrogenContent, DrybasisContent, HeavyAs, HeavyCd, HeavyCr, HeavyHg, SS, Acidity, Alkalinity, HeavyPb, Cu, Ni, Mn, Zn, Cut, HeavyFe, Concentrate) 
-                     VALUES (@WasteDataID, @AnalysisNo, @SamplingBy, @SamplingByNo, @FreeChlorine, @Nitrite, @Cyanide, @Physicalstate, @Viscosity, @Bulkdensity, @HeatingValue, @NCVValue, @MoistureContent, @WaterContent, @AshContent, @CL, @F, @S, @SludgeContent, @SolidContent, @NitrogenContent, @DrybasisContent, @HeavyAs, @HeavyCd, @HeavyCr, @HeavyHg, @SS, @Acidity, @Alkalinity, @HeavyPb, @TDS, @Ni, @Mn, @Zn, @Cu, @HeavyFe, @Concentrate)";
+                     VALUES (@WasteDataID, @AnalysisNo, @SamplingBy, @SamplingByNo, @FreeChlorine, @Nitrite, @Cyanide, @Physicalstate, @Viscosity, @Bulkdensity, @HeatingValue, @NCVValue, @MoistureContent, @WaterContent, @AshContent, @CL, @F, @S, @SludgeContent, @SolidContent, @NitrogenContent, @DrybasisContent, @HeavyAs, @HeavyCd, @HeavyCr, @HeavyHg, @SS, @Acidity, @Alkalinity, @HeavyPb, @Cu, @Ni, @Mn, @Zn, @Cut, @HeavyFe, @Concentrate)";
         }
 
         private static string GetUpdateQuery()
         {
             return @"UPDATE tbWasteDataLab SET 
-                        AnalysisNo = @AnalysisNo, SamplingBy = @SamplingBy, SamplingByNo = @SamplingByNo, FreeChlorine = @FreeChlorine, Nitrite = @Nitrite, Cyanide = @Cyanide, Physicalstate = @Physicalstate, Viscosity = @Viscosity, Bulkdensity = @Bulkdensity, HeatingValue = @HeatingValue, NCVValue = @NCVValue, MoistureContent = @MoistureContent, WaterContent = @WaterContent, AshContent = @AshContent, CL = @CL, F = @F, S = @S, SludgeContent = @SludgeContent, SolidContent = @SolidContent, NitrogenContent = @NitrogenContent, DrybasisContent = @DrybasisContent, HeavyAs = @HeavyAs, HeavyCd = @HeavyCd, HeavyCr = @HeavyCr, HeavyHg = @HeavyHg, SS = @SS, Acidity = @Acidity, Alkalinity = @Alkalinity, HeavyPb = @HeavyPb, Cu = @TDS, Ni = @Ni, Mn = @Mn, Zn = @Zn, Cut = @Cu, HeavyFe = @HeavyFe, Concentrate = @Concentrate
+                        AnalysisNo = @AnalysisNo, SamplingBy = @SamplingBy, SamplingByNo = @SamplingByNo, FreeChlorine = @FreeChlorine, Nitrite = @Nitrite, Cyanide = @Cyanide, Physicalstate = @Physicalstate, Viscosity = @Viscosity, Bulkdensity = @Bulkdensity, HeatingValue = @HeatingValue, NCVValue = @NCVValue, MoistureContent = @MoistureContent, WaterContent = @WaterContent, AshContent = @AshContent, CL = @CL, F = @F, S = @S, SludgeContent = @SludgeContent, SolidContent = @SolidContent, NitrogenContent = @NitrogenContent, DrybasisContent = @DrybasisContent, HeavyAs = @HeavyAs, HeavyCd = @HeavyCd, HeavyCr = @HeavyCr, HeavyHg = @HeavyHg, SS = @SS, Acidity = @Acidity, Alkalinity = @Alkalinity, HeavyPb = @HeavyPb, Cu = @Cu, Ni = @Ni, Mn = @Mn, Zn = @Zn, Cut = @Cut, HeavyFe = @HeavyFe, Concentrate = @Concentrate
                      WHERE WasteDataID = @WasteDataID";
         }
     }

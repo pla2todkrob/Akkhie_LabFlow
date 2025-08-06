@@ -1,6 +1,13 @@
-﻿using System;
+﻿using LabFlow.Models;
+using System;
+using System.Collections.Generic;
+using System.Data.SqlClient;
+using System.Deployment.Application;
+using System.Diagnostics;
+using System.IO;
+using System.Reflection;
+using System.Threading.Tasks; // Add this for Task
 using System.Windows.Forms;
-using LabFlow.Models;
 
 namespace LabFlow
 {
@@ -15,28 +22,101 @@ namespace LabFlow
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            ApplyTheme();
             SetupInitialState();
+            DisplayVersion();
+            // แสดงฟอร์มค้นหาทันทีเมื่อเปิดโปรแกรม
+            ShowSearchForm();
+        }
+
+        private void ApplyTheme()
+        {
+            UITheme.ApplyThemeToForm(this);
+            UITheme.StyleButton(btnSave, isPrimary: true);
+            UITheme.StyleButton(btnClear, isPrimary: false);
+            panelBottom.BackColor = UITheme.CardBackgroundColor;
+
+            // Style all panels as cards with titles
+            UITheme.StylePanelAsCard(panelGeneral, "ข้อมูลทั่วไป");
+            UITheme.StylePanelAsCard(panelPhysical, "คุณสมบัติทางกายภาพ");
+            UITheme.StylePanelAsCard(panelChemical, "องค์ประกอบทางเคมี");
+            UITheme.StylePanelAsCard(panelReaction, "ผลการทดสอบปฏิกิริยา");
+            UITheme.StylePanelAsCard(panelHeat, "ค่าความร้อน");
+            UITheme.StylePanelAsCard(panelHeavyMetal, "โลหะหนักและอื่นๆ");
+
+            var panels = new List<Panel>
+            {
+                panelGeneral, panelPhysical, panelChemical,
+                panelReaction, panelHeat, panelHeavyMetal
+            };
+
+            foreach (var panel in panels)
+            {
+                foreach (Control control in panel.Controls)
+                {
+                    if (control is TextBox)
+                        UITheme.StyleTextBox(control as TextBox);
+                    else if (control is Label)
+                        UITheme.StyleLabel(control as Label);
+                    else if (control is CheckBox)
+                        UITheme.StyleCheckBox(control as CheckBox);
+                }
+            }
+
+            UITheme.StyleStatusStrip(statusStrip1);
+        }
+
+        private void DisplayVersion()
+        {
+            try
+            {
+                if (ApplicationDeployment.IsNetworkDeployed)
+                {
+                    versionLabel.Text = $"v{ApplicationDeployment.CurrentDeployment.CurrentVersion}";
+                }
+                else
+                {
+                    versionLabel.Text = $"v{Assembly.GetExecutingAssembly().GetName().Version.ToString(3)}";
+                }
+            }
+            catch (Exception)
+            {
+                versionLabel.Text = "v-.-.-";
+            }
         }
 
         private void SetupInitialState()
         {
-            ToggleControls(false);
-            statusLabel.Text = "กรุณากรอก 'เลขที่ของเสีย' แล้วกดค้นหา";
+            ToggleControls(false); // ปิดการใช้งานฟอร์มหลักในตอนแรก
+            statusLabel.Text = "กรุณาค้นหาข้อมูลเพื่อเริ่มต้น";
         }
 
-        private async void btnSearch_Click(object sender, EventArgs e)
+        // ฟังก์ชันสำหรับแสดงฟอร์มค้นหา
+        private void ShowSearchForm()
         {
-            string wasteNo = txtWasteNo.Text.Trim();
-            if (string.IsNullOrEmpty(wasteNo))
+            using (SearchForm searchForm = new SearchForm())
             {
-                MessageBox.Show("กรุณากรอกเลขที่ของเสีย", "ข้อมูลไม่ครบถ้วน", MessageBoxButtons.OK, MessageBoxIcon.Warning);
-                return;
+                // แสดงฟอร์มเป็น Modal Dialog (ผู้ใช้ต้องปิดฟอร์มนี้ก่อนไปทำอย่างอื่น)
+                if (searchForm.ShowDialog(this) == DialogResult.OK)
+                {
+                    // ถ้าผู้ใช้กด "ค้นหา" ให้เริ่มการค้นหาข้อมูล
+                    string wasteNo = searchForm.WasteNo;
+                    // ใช้ Task.Run เพื่อไม่ให้ UI ค้างขณะค้นหา
+                    Task.Run(() => PerformSearch(wasteNo));
+                }
             }
+        }
 
-            statusLabel.Text = "กำลังค้นหาข้อมูล...";
-            this.Cursor = Cursors.WaitCursor;
-            currentWasteDataID = string.Empty;
-            ClearForm();
+        // ฟังก์ชันสำหรับประมวลผลการค้นหา (แยกออกมาเพื่อให้เรียกใช้แบบ Async ได้)
+        private async Task PerformSearch(string wasteNo)
+        {
+            // ใช้ Invoke เพื่ออัปเดต UI จาก Thread อื่น
+            this.Invoke((MethodInvoker)delegate {
+                statusLabel.Text = "กำลังค้นหาข้อมูล...";
+                this.Cursor = Cursors.WaitCursor;
+                currentWasteDataID = string.Empty;
+                ClearForm();
+            });
 
             try
             {
@@ -47,34 +127,43 @@ namespace LabFlow
                     currentWasteDataID = wasteDataId;
                     WasteDataLabModel labData = await DatabaseHelper.GetWasteDataLab(currentWasteDataID);
 
-                    if (labData != null)
-                    {
-                        PopulateForm(labData);
-                        ToggleControls(true);
-                        statusLabel.Text = $"พบข้อมูลสำหรับ Waste No: {wasteNo}";
-                    }
-                    else
-                    {
-                        ToggleControls(true);
-                        txtAnalysisNo.Text = "N/A - ข้อมูลใหม่";
-                        statusLabel.Text = $"ไม่พบผลวิเคราะห์สำหรับ Waste No: {wasteNo} (สามารถกรอกข้อมูลใหม่ได้)";
-                    }
+                    this.Invoke((MethodInvoker)delegate {
+                        if (labData != null)
+                        {
+                            PopulateForm(labData);
+                            statusLabel.Text = $"พบข้อมูลสำหรับ Waste No: {wasteNo}";
+                        }
+                        else
+                        {
+                            txtAnalysisNo.Text = "N/A - ข้อมูลใหม่";
+                            statusLabel.Text = $"ไม่พบผลวิเคราะห์สำหรับ Waste No: {wasteNo} (สามารถกรอกข้อมูลใหม่ได้)";
+                        }
+                        ToggleControls(true); // เปิดใช้งานฟอร์มหลัก
+                    });
                 }
                 else
                 {
                     MessageBox.Show("ไม่พบเลขที่ของเสียนี้ในระบบ", "ไม่พบข้อมูล", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ToggleControls(false);
-                    statusLabel.Text = "ไม่พบข้อมูล กรุณาลองใหม่อีกครั้ง";
+                    this.Invoke((MethodInvoker)delegate {
+                        ToggleControls(false);
+                        statusLabel.Text = "ไม่พบข้อมูล กรุณาลองใหม่อีกครั้ง";
+                        ShowSearchForm(); // ถ้าไม่พบข้อมูล ให้เปิดหน้าต่างค้นหาอีกครั้ง
+                    });
                 }
+            }
+            catch (SqlException sqlEx)
+            {
+                MessageBox.Show("เกิดข้อผิดพลาดในการเชื่อมต่อฐานข้อมูล: \n" + sqlEx.Message, "Database Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Invoke((MethodInvoker)delegate { statusLabel.Text = "การเชื่อมต่อล้มเหลว"; });
             }
             catch (Exception ex)
             {
-                MessageBox.Show("เกิดข้อผิดพลาดในการเชื่อมต่อฐานข้อมูล: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                statusLabel.Text = "เกิดข้อผิดพลาด";
+                MessageBox.Show("เกิดข้อผิดพลาด: " + ex.Message, "Error", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                this.Invoke((MethodInvoker)delegate { statusLabel.Text = "เกิดข้อผิดพลาด"; });
             }
             finally
             {
-                this.Cursor = Cursors.Default;
+                this.Invoke((MethodInvoker)delegate { this.Cursor = Cursors.Default; });
             }
         }
 
@@ -82,7 +171,7 @@ namespace LabFlow
         {
             if (string.IsNullOrEmpty(currentWasteDataID))
             {
-                MessageBox.Show("กรุณาค้นหาข้อมูลก่อนทำการบันทึก", "ข้อมูลไม่ถูกต้อง", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                MessageBox.Show("ไม่มีข้อมูลให้บันทึก กรุณาค้นหาข้อมูลก่อน", "ข้อมูลไม่ถูกต้อง", MessageBoxButtons.OK, MessageBoxIcon.Warning);
                 return;
             }
 
@@ -98,17 +187,7 @@ namespace LabFlow
                     if (success)
                     {
                         statusLabel.Text = "บันทึกข้อมูลล่าสุดเมื่อ " + DateTime.Now.ToString("HH:mm:ss");
-
-                        DialogResult clearResult = MessageBox.Show(
-                            "บันทึกข้อมูลเรียบร้อยแล้ว\n\nคุณต้องการล้างข้อมูลในฟอร์มเพื่อเริ่มรายการใหม่หรือไม่?",
-                            "สำเร็จ",
-                            MessageBoxButtons.YesNo,
-                            MessageBoxIcon.Question);
-
-                        if (clearResult == DialogResult.Yes)
-                        {
-                            btnClear_Click(sender, e);
-                        }
+                        MessageBox.Show("บันทึกข้อมูลเรียบร้อยแล้ว", "สำเร็จ", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     }
                     else
                     {
@@ -131,9 +210,8 @@ namespace LabFlow
         {
             ClearForm();
             ToggleControls(false);
-            txtWasteNo.Clear();
-            txtWasteNo.Focus();
-            statusLabel.Text = "กรุณากรอก 'เลขที่ของเสีย' แล้วกดค้นหา";
+            statusLabel.Text = "กรุณาค้นหาข้อมูลเพื่อเริ่มต้น";
+            ShowSearchForm(); // แสดงฟอร์มค้นหาอีกครั้ง
         }
 
         private void PopulateForm(WasteDataLabModel data)
@@ -141,11 +219,9 @@ namespace LabFlow
             txtAnalysisNo.Text = data.AnalysisNo;
             txtSamplingBy.Text = data.SamplingBy;
             txtSamplingByNo.Text = data.SamplingByNo;
-
             chkFreeChlorine.Checked = (data.FreeChlorine == "Y");
             chkNitrite.Checked = (data.Nitrite == "Y");
             chkCyanide.Checked = (data.Cyanide == "Y");
-
             txtPhysicalstate.Text = data.Physicalstate;
             txtViscosity.Text = data.Viscosity;
             txtBulkdensity.Text = data.Bulkdensity;
@@ -224,17 +300,19 @@ namespace LabFlow
 
         private void ClearForm()
         {
-            foreach (Control c in dataLayout.Controls)
+            var panels = new List<Panel>
             {
-                if (c is GroupBox)
+                panelGeneral, panelPhysical, panelChemical,
+                panelReaction, panelHeat, panelHeavyMetal
+            };
+            foreach (var panel in panels)
+            {
+                foreach (Control c in panel.Controls)
                 {
-                    foreach (Control input in c.Controls)
-                    {
-                        if (input is TextBox)
-                            ((TextBox)input).Clear();
-                        else if (input is CheckBox)
-                            ((CheckBox)input).Checked = false;
-                    }
+                    if (c is TextBox)
+                        ((TextBox)c).Clear();
+                    else if (c is CheckBox)
+                        ((CheckBox)c).Checked = false;
                 }
             }
         }
@@ -242,7 +320,37 @@ namespace LabFlow
         private void ToggleControls(bool enabled)
         {
             dataLayout.Enabled = enabled;
-            btnSave.Enabled = enabled;
+            panelBottom.Enabled = enabled;
+        }
+
+        private void userManualMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenDocument("คู่มือสำหรับผู้ใช้งาน.pdf");
+        }
+
+        private void devManualMenuItem_Click(object sender, EventArgs e)
+        {
+            OpenDocument("คู่มือสำหรับนักพัฒนา.pdf");
+        }
+
+        private void OpenDocument(string fileName)
+        {
+            try
+            {
+                string docPath = Path.Combine(Application.StartupPath, "Document", fileName);
+                if (File.Exists(docPath))
+                {
+                    Process.Start(docPath);
+                }
+                else
+                {
+                    MessageBox.Show($"ไม่พบไฟล์คู่มือ: {fileName}", "ไม่พบไฟล์", MessageBoxButtons.OK, MessageBoxIcon.Warning);
+                }
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("ไม่สามารถเปิดคู่มือได้: " + ex.Message, "เกิดข้อผิดพลาด", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
         }
     }
 }
