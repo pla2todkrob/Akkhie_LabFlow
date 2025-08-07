@@ -5,8 +5,9 @@ using System.Data.SqlClient;
 using System.Deployment.Application;
 using System.Diagnostics;
 using System.IO;
+using System.Linq;
 using System.Reflection;
-using System.Threading.Tasks; // Add this for Task
+using System.Threading.Tasks;
 using System.Windows.Forms;
 
 namespace LabFlow
@@ -25,59 +26,70 @@ namespace LabFlow
             ApplyTheme();
             SetupInitialState();
             DisplayVersion();
-            // แสดงฟอร์มค้นหาทันทีเมื่อเปิดโปรแกรม
             ShowSearchForm();
         }
 
         private void ApplyTheme()
         {
+            // Apply base theme to the form
             UITheme.ApplyThemeToForm(this);
+
+            // Style buttons and status strip
             UITheme.StyleButton(btnSave, isPrimary: true);
             UITheme.StyleButton(btnClear, isPrimary: false);
+            UITheme.StyleStatusStrip(statusStrip1);
             panelBottom.BackColor = UITheme.CardBackgroundColor;
 
-            // Style all panels as cards with titles
-            UITheme.StylePanelAsCard(panelGeneral, "ข้อมูลทั่วไป");
-            UITheme.StylePanelAsCard(panelPhysical, "คุณสมบัติทางกายภาพ");
-            UITheme.StylePanelAsCard(panelChemical, "องค์ประกอบทางเคมี");
-            UITheme.StylePanelAsCard(panelReaction, "ผลการทดสอบปฏิกิริยา");
-            UITheme.StylePanelAsCard(panelHeat, "ค่าความร้อน");
-            UITheme.StylePanelAsCard(panelHeavyMetal, "โลหะหนักและอื่นๆ");
-
-            var panels = new List<Panel>
+            // Apply styles to all controls within the main data layout
+            // This makes the theme application more robust
+            foreach (var groupBox in dataLayout.Controls.OfType<GroupBox>())
             {
-                panelGeneral, panelPhysical, panelChemical,
-                panelReaction, panelHeat, panelHeavyMetal
-            };
+                ApplyThemeToGroupBox(groupBox);
+            }
+        }
 
-            foreach (var panel in panels)
+        private void ApplyThemeToGroupBox(GroupBox gb)
+        {
+            gb.Font = UITheme.HeaderFont;
+            gb.ForeColor = UITheme.TextColor;
+
+            // Recursively style controls inside the groupbox
+            foreach (Control control in gb.Controls)
             {
-                foreach (Control control in panel.Controls)
+                if (control is TableLayoutPanel || control is FlowLayoutPanel)
                 {
-                    if (control is TextBox)
-                        UITheme.StyleTextBox(control as TextBox);
-                    else if (control is Label)
-                        UITheme.StyleLabel(control as Label);
-                    else if (control is CheckBox)
-                        UITheme.StyleCheckBox(control as CheckBox);
+                    foreach (Control childControl in control.Controls)
+                    {
+                        ApplyThemeToControl(childControl);
+                    }
+                }
+                else
+                {
+                    ApplyThemeToControl(control);
                 }
             }
+        }
 
-            UITheme.StyleStatusStrip(statusStrip1);
+        private void ApplyThemeToControl(Control control)
+        {
+            if (control is Label)
+                UITheme.StyleLabel(control as Label);
+            else if (control is TextBox)
+                UITheme.StyleTextBox(control as TextBox);
+            else if (control is CheckBox)
+                UITheme.StyleCheckBox(control as CheckBox);
+            else if (control is GroupBox) // For nested groupboxes
+                ApplyThemeToGroupBox(control as GroupBox);
+
         }
 
         private void DisplayVersion()
         {
             try
             {
-                if (ApplicationDeployment.IsNetworkDeployed)
-                {
-                    versionLabel.Text = $"v{ApplicationDeployment.CurrentDeployment.CurrentVersion}";
-                }
-                else
-                {
-                    versionLabel.Text = $"v{Assembly.GetExecutingAssembly().GetName().Version.ToString(3)}";
-                }
+                versionLabel.Text = ApplicationDeployment.IsNetworkDeployed
+                    ? $"v{ApplicationDeployment.CurrentDeployment.CurrentVersion}"
+                    : $"v{Assembly.GetExecutingAssembly().GetName().Version.ToString(3)}";
             }
             catch (Exception)
             {
@@ -87,30 +99,25 @@ namespace LabFlow
 
         private void SetupInitialState()
         {
-            ToggleControls(false); // ปิดการใช้งานฟอร์มหลักในตอนแรก
+            ToggleControls(false);
             statusLabel.Text = "กรุณาค้นหาข้อมูลเพื่อเริ่มต้น";
         }
 
-        // ฟังก์ชันสำหรับแสดงฟอร์มค้นหา
         private void ShowSearchForm()
         {
-            using (SearchForm searchForm = new SearchForm())
+            using (var searchForm = new SearchForm())
             {
-                // แสดงฟอร์มเป็น Modal Dialog (ผู้ใช้ต้องปิดฟอร์มนี้ก่อนไปทำอย่างอื่น)
                 if (searchForm.ShowDialog(this) == DialogResult.OK)
                 {
-                    // ถ้าผู้ใช้กด "ค้นหา" ให้เริ่มการค้นหาข้อมูล
                     string wasteNo = searchForm.WasteNo;
-                    // ใช้ Task.Run เพื่อไม่ให้ UI ค้างขณะค้นหา
+                    // Use Task.Run to avoid freezing the UI
                     Task.Run(() => PerformSearch(wasteNo));
                 }
             }
         }
 
-        // ฟังก์ชันสำหรับประมวลผลการค้นหา (แยกออกมาเพื่อให้เรียกใช้แบบ Async ได้)
         private async Task PerformSearch(string wasteNo)
         {
-            // ใช้ Invoke เพื่ออัปเดต UI จาก Thread อื่น
             this.Invoke((MethodInvoker)delegate {
                 statusLabel.Text = "กำลังค้นหาข้อมูล...";
                 this.Cursor = Cursors.WaitCursor;
@@ -138,7 +145,7 @@ namespace LabFlow
                             txtAnalysisNo.Text = "N/A - ข้อมูลใหม่";
                             statusLabel.Text = $"ไม่พบผลวิเคราะห์สำหรับ Waste No: {wasteNo} (สามารถกรอกข้อมูลใหม่ได้)";
                         }
-                        ToggleControls(true); // เปิดใช้งานฟอร์มหลัก
+                        ToggleControls(true);
                     });
                 }
                 else
@@ -147,7 +154,7 @@ namespace LabFlow
                     this.Invoke((MethodInvoker)delegate {
                         ToggleControls(false);
                         statusLabel.Text = "ไม่พบข้อมูล กรุณาลองใหม่อีกครั้ง";
-                        ShowSearchForm(); // ถ้าไม่พบข้อมูล ให้เปิดหน้าต่างค้นหาอีกครั้ง
+                        ShowSearchForm();
                     });
                 }
             }
@@ -211,7 +218,7 @@ namespace LabFlow
             ClearForm();
             ToggleControls(false);
             statusLabel.Text = "กรุณาค้นหาข้อมูลเพื่อเริ่มต้น";
-            ShowSearchForm(); // แสดงฟอร์มค้นหาอีกครั้ง
+            ShowSearchForm();
         }
 
         private void PopulateForm(WasteDataLabModel data)
@@ -300,20 +307,23 @@ namespace LabFlow
 
         private void ClearForm()
         {
-            var panels = new List<Panel>
+            // This method iterates through all groupboxes and clears their contents
+            foreach (var groupBox in dataLayout.Controls.OfType<GroupBox>())
             {
-                panelGeneral, panelPhysical, panelChemical,
-                panelReaction, panelHeat, panelHeavyMetal
-            };
-            foreach (var panel in panels)
+                ClearControlsIn(groupBox);
+            }
+        }
+
+        private void ClearControlsIn(Control container)
+        {
+            foreach (Control c in container.Controls)
             {
-                foreach (Control c in panel.Controls)
-                {
-                    if (c is TextBox)
-                        ((TextBox)c).Clear();
-                    else if (c is CheckBox)
-                        ((CheckBox)c).Checked = false;
-                }
+                if (c is TextBox txtBox)
+                    txtBox.Clear();
+                else if (c is CheckBox chkBox)
+                    chkBox.Checked = false;
+                else if (c.HasChildren) // Recursively clear controls in nested containers
+                    ClearControlsIn(c);
             }
         }
 

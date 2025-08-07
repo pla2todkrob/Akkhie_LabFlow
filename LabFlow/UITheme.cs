@@ -18,7 +18,7 @@ namespace LabFlow
         public static Color CardBackgroundColor { get; } = Color.White;
         public static Color TextColor { get; } = Color.FromArgb(33, 37, 41);
         public static Color BorderColor { get; } = Color.FromArgb(222, 226, 230);
-        public static Color HeaderColor { get; } = Color.FromArgb(0, 123, 255);
+        public static Color ReadOnlyColor { get; } = Color.FromArgb(233, 236, 239); // สีสำหรับ ReadOnly
 
         // ================== Fonts ==================
         public static Font MainFont { get; } = new Font("Segoe UI", 9.75F, FontStyle.Regular, GraphicsUnit.Point, 0);
@@ -45,7 +45,7 @@ namespace LabFlow
             btn.Font = new Font("Segoe UI Semibold", 9.75F, FontStyle.Bold);
             btn.ForeColor = Color.White;
             btn.Cursor = Cursors.Hand;
-            btn.Height = 35; // Set a consistent height
+            btn.Height = 35;
 
             Color backColor = isPrimary ? PrimaryColor : SecondaryColor;
             Color hoverColor = isPrimary ? PrimaryColor_Hover : SecondaryColor_Hover;
@@ -53,55 +53,33 @@ namespace LabFlow
             btn.BackColor = backColor;
 
             // Hover effects
-            btn.MouseEnter += (sender, e) => btn.BackColor = hoverColor;
-            btn.MouseLeave += (sender, e) => btn.BackColor = backColor;
+            btn.MouseEnter -= OnButtonEnter;
+            btn.MouseLeave -= OnButtonLeave;
+            btn.MouseEnter += OnButtonEnter;
+            btn.MouseLeave += OnButtonLeave;
+
+            // Store original colors in Tag property
+            btn.Tag = new { BackColor = backColor, HoverColor = hoverColor };
         }
 
-        /// <summary>
-        /// ปรับสไตล์ของ Panel ให้เป็นการ์ด (แทน GroupBox)
-        /// </summary>
-        public static void StylePanelAsCard(Panel panel, string title)
+        private static void OnButtonEnter(object sender, System.EventArgs e)
         {
-            panel.BackColor = CardBackgroundColor;
-            panel.BorderStyle = BorderStyle.FixedSingle;
-            panel.Padding = new Padding(15, 45, 15, 15); // Top padding for header
-
-            // Add a custom border color
-            panel.Paint += (sender, e) =>
+            Button btn = sender as Button;
+            if (btn != null && btn.Tag != null)
             {
-                ControlPaint.DrawBorder(e.Graphics, panel.ClientRectangle,
-                    BorderColor, 1, ButtonBorderStyle.Solid,
-                    BorderColor, 1, ButtonBorderStyle.Solid,
-                    BorderColor, 1, ButtonBorderStyle.Solid,
-                    BorderColor, 1, ButtonBorderStyle.Solid);
-            };
+                dynamic colors = btn.Tag;
+                btn.BackColor = colors.HoverColor;
+            }
+        }
 
-            // Add a title label to act as the header
-            Label headerLabel = new Label
+        private static void OnButtonLeave(object sender, System.EventArgs e)
+        {
+            Button btn = sender as Button;
+            if (btn != null && btn.Tag != null)
             {
-                Text = title,
-                Font = HeaderFont,
-                ForeColor = TextColor,
-                AutoSize = false,
-                TextAlign = ContentAlignment.MiddleLeft,
-                Dock = DockStyle.Top,
-                Height = 40,
-                Padding = new Padding(15, 0, 0, 0)
-            };
-
-            // Add a line under the header
-            Label line = new Label
-            {
-                Height = 1,
-                Dock = DockStyle.Top,
-                BackColor = BorderColor,
-                Margin = new Padding(0, 0, 0, 10) // Margin below the line
-            };
-
-            panel.Controls.Add(line);
-            panel.Controls.Add(headerLabel);
-            line.BringToFront();
-            headerLabel.BringToFront();
+                dynamic colors = btn.Tag;
+                btn.BackColor = colors.BackColor;
+            }
         }
 
         /// <summary>
@@ -111,6 +89,8 @@ namespace LabFlow
         {
             lbl.Font = LabelFont;
             lbl.ForeColor = TextColor;
+            lbl.Anchor = AnchorStyles.Left;
+            lbl.TextAlign = ContentAlignment.MiddleLeft;
         }
 
         /// <summary>
@@ -119,19 +99,11 @@ namespace LabFlow
         public static void StyleTextBox(TextBox txt)
         {
             txt.BorderStyle = BorderStyle.FixedSingle;
-            txt.BackColor = CardBackgroundColor;
-            txt.ForeColor = TextColor;
             txt.Font = MainFont;
+            txt.ForeColor = TextColor;
 
-            // Add custom border color
-            txt.Paint += (sender, e) =>
-            {
-                ControlPaint.DrawBorder(e.Graphics, txt.ClientRectangle,
-                    BorderColor, 1, ButtonBorderStyle.Solid,
-                    BorderColor, 1, ButtonBorderStyle.Solid,
-                    BorderColor, 1, ButtonBorderStyle.Solid,
-                    BorderColor, 1, ButtonBorderStyle.Solid);
-            };
+            // Set background color based on ReadOnly state
+            txt.BackColor = txt.ReadOnly ? ReadOnlyColor : CardBackgroundColor;
         }
 
         /// <summary>
