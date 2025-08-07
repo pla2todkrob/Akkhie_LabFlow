@@ -130,7 +130,7 @@
             this.mainTableLayout.RowCount = 2;
             this.mainTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.mainTableLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.mainTableLayout.Size = new System.Drawing.Size(1008, 659);
+            this.mainTableLayout.Size = new System.Drawing.Size(1008, 707);
             this.mainTableLayout.TabIndex = 0;
             // 
             // panelBottom
@@ -141,11 +141,11 @@
             this.panelBottom.Controls.Add(this.btnClear);
             this.panelBottom.Dock = System.Windows.Forms.DockStyle.Fill;
             this.panelBottom.FlowDirection = System.Windows.Forms.FlowDirection.RightToLeft;
-            this.panelBottom.Location = new System.Drawing.Point(0, 599);
+            this.panelBottom.Location = new System.Drawing.Point(0, 636);
             this.panelBottom.Margin = new System.Windows.Forms.Padding(0);
             this.panelBottom.Name = "panelBottom";
             this.panelBottom.Padding = new System.Windows.Forms.Padding(15);
-            this.panelBottom.Size = new System.Drawing.Size(1008, 60);
+            this.panelBottom.Size = new System.Drawing.Size(1008, 71);
             this.panelBottom.TabIndex = 1;
             // 
             // btnSave
@@ -189,7 +189,7 @@
             this.dataLayout.RowStyles.Add(new System.Windows.Forms.RowStyle());
             this.dataLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 60F));
             this.dataLayout.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 40F));
-            this.dataLayout.Size = new System.Drawing.Size(1002, 593);
+            this.dataLayout.Size = new System.Drawing.Size(1002, 630);
             this.dataLayout.TabIndex = 2;
             // 
             // panelGeneral
@@ -220,7 +220,7 @@
             this.label4.AutoSize = true;
             this.label4.Location = new System.Drawing.Point(663, 62);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(99, 17);
+            this.label4.Size = new System.Drawing.Size(88, 17);
             this.label4.TabIndex = 4;
             this.label4.Text = "เลขที่ใบอนุญาต:";
             // 
@@ -236,7 +236,7 @@
             this.label3.AutoSize = true;
             this.label3.Location = new System.Drawing.Point(347, 62);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(80, 17);
+            this.label3.Size = new System.Drawing.Size(74, 17);
             this.label3.TabIndex = 2;
             this.label3.Text = "ผู้เก็บตัวอย่าง:";
             // 
@@ -253,7 +253,7 @@
             this.label2.AutoSize = true;
             this.label2.Location = new System.Drawing.Point(18, 62);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(87, 17);
+            this.label2.Size = new System.Drawing.Size(77, 17);
             this.label2.TabIndex = 0;
             this.label2.Text = "เลขที่วิเคราะห์:";
             // 
@@ -278,15 +278,15 @@
             this.panelPhysical.Controls.Add(this.txtPhysicalstate);
             this.panelPhysical.Controls.Add(this.label5);
             this.panelPhysical.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelPhysical.Location = new System.Drawing.Point(343, 126);
+            this.panelPhysical.Location = new System.Drawing.Point(346, 126);
             this.panelPhysical.Margin = new System.Windows.Forms.Padding(8, 3, 8, 8);
             this.panelPhysical.Name = "panelPhysical";
-            this.panelPhysical.Size = new System.Drawing.Size(310, 261);
+            this.panelPhysical.Size = new System.Drawing.Size(310, 286);
             this.panelPhysical.TabIndex = 2;
             // 
             // txtSS
             // 
-            this.txtSS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSS.Location = new System.Drawing.Point(145, 270);
             this.txtSS.Name = "txtSS";
@@ -298,13 +298,13 @@
             this.label13.AutoSize = true;
             this.label13.Location = new System.Drawing.Point(18, 273);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(119, 17);
+            this.label13.Size = new System.Drawing.Size(114, 17);
             this.label13.TabIndex = 16;
             this.label13.Text = "Suspended solids:";
             // 
             // txtSolidContent
             // 
-            this.txtSolidContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSolidContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSolidContent.Location = new System.Drawing.Point(145, 239);
             this.txtSolidContent.Name = "txtSolidContent";
@@ -316,13 +316,13 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(18, 242);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(91, 17);
+            this.label12.Size = new System.Drawing.Size(89, 17);
             this.label12.TabIndex = 14;
             this.label12.Text = "ปริมาณของแข็ง:";
             // 
             // txtSludgeContent
             // 
-            this.txtSludgeContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtSludgeContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtSludgeContent.Location = new System.Drawing.Point(145, 208);
             this.txtSludgeContent.Name = "txtSludgeContent";
@@ -334,13 +334,13 @@
             this.label11.AutoSize = true;
             this.label11.Location = new System.Drawing.Point(18, 211);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(91, 17);
+            this.label11.Size = new System.Drawing.Size(78, 17);
             this.label11.TabIndex = 12;
             this.label11.Text = "ปริมาณสลัดจ์:";
             // 
             // txtAshContent
             // 
-            this.txtAshContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtAshContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAshContent.Location = new System.Drawing.Point(145, 177);
             this.txtAshContent.Name = "txtAshContent";
@@ -352,13 +352,13 @@
             this.label10.AutoSize = true;
             this.label10.Location = new System.Drawing.Point(18, 180);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(71, 17);
+            this.label10.Size = new System.Drawing.Size(66, 17);
             this.label10.TabIndex = 10;
             this.label10.Text = "ปริมาณเถ้า:";
             // 
             // txtWaterContent
             // 
-            this.txtWaterContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtWaterContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtWaterContent.Location = new System.Drawing.Point(145, 146);
             this.txtWaterContent.Name = "txtWaterContent";
@@ -370,13 +370,13 @@
             this.label9.AutoSize = true;
             this.label9.Location = new System.Drawing.Point(18, 149);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(69, 17);
+            this.label9.Size = new System.Drawing.Size(64, 17);
             this.label9.TabIndex = 8;
             this.label9.Text = "ปริมาณน้ำ:";
             // 
             // txtMoistureContent
             // 
-            this.txtMoistureContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtMoistureContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMoistureContent.Location = new System.Drawing.Point(145, 115);
             this.txtMoistureContent.Name = "txtMoistureContent";
@@ -388,13 +388,13 @@
             this.label8.AutoSize = true;
             this.label8.Location = new System.Drawing.Point(18, 118);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(76, 17);
+            this.label8.Size = new System.Drawing.Size(66, 17);
             this.label8.TabIndex = 6;
             this.label8.Text = "ค่าความชื้น:";
             // 
             // txtBulkdensity
             // 
-            this.txtBulkdensity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtBulkdensity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtBulkdensity.Location = new System.Drawing.Point(145, 84);
             this.txtBulkdensity.Name = "txtBulkdensity";
@@ -406,13 +406,13 @@
             this.label7.AutoSize = true;
             this.label7.Location = new System.Drawing.Point(18, 87);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(92, 17);
+            this.label7.Size = new System.Drawing.Size(81, 17);
             this.label7.TabIndex = 4;
             this.label7.Text = "ความหนาแน่น:";
             // 
             // txtViscosity
             // 
-            this.txtViscosity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtViscosity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtViscosity.Location = new System.Drawing.Point(145, 53);
             this.txtViscosity.Name = "txtViscosity";
@@ -424,13 +424,13 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(18, 56);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 17);
+            this.label6.Size = new System.Drawing.Size(60, 17);
             this.label6.TabIndex = 2;
             this.label6.Text = "ความหนืด:";
             // 
             // txtPhysicalstate
             // 
-            this.txtPhysicalstate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtPhysicalstate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtPhysicalstate.Location = new System.Drawing.Point(145, 22);
             this.txtPhysicalstate.Name = "txtPhysicalstate";
@@ -442,7 +442,7 @@
             this.label5.AutoSize = true;
             this.label5.Location = new System.Drawing.Point(18, 25);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(121, 17);
+            this.label5.Size = new System.Drawing.Size(116, 17);
             this.label5.TabIndex = 0;
             this.label5.Text = "สถานะ (Phys. state):";
             // 
@@ -465,19 +465,19 @@
             this.panelChemical.Controls.Add(this.txtCL);
             this.panelChemical.Controls.Add(this.label16);
             this.panelChemical.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelChemical.Location = new System.Drawing.Point(669, 126);
+            this.panelChemical.Location = new System.Drawing.Point(672, 126);
             this.panelChemical.Margin = new System.Windows.Forms.Padding(8, 3, 3, 8);
             this.panelChemical.Name = "panelChemical";
-            this.panelChemical.Size = new System.Drawing.Size(318, 261);
+            this.panelChemical.Size = new System.Drawing.Size(315, 286);
             this.panelChemical.TabIndex = 4;
             // 
             // txtConcentrate
             // 
-            this.txtConcentrate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtConcentrate.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtConcentrate.Location = new System.Drawing.Point(159, 270);
             this.txtConcentrate.Name = "txtConcentrate";
-            this.txtConcentrate.Size = new System.Drawing.Size(141, 25);
+            this.txtConcentrate.Size = new System.Drawing.Size(138, 25);
             this.txtConcentrate.TabIndex = 15;
             // 
             // label23
@@ -485,17 +485,17 @@
             this.label23.AutoSize = true;
             this.label23.Location = new System.Drawing.Point(18, 273);
             this.label23.Name = "label23";
-            this.label23.Size = new System.Drawing.Size(135, 17);
+            this.label23.Size = new System.Drawing.Size(114, 17);
             this.label23.TabIndex = 14;
             this.label23.Text = "ความเข้มข้นกรด/ด่าง:";
             // 
             // txtAlkalinity
             // 
-            this.txtAlkalinity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtAlkalinity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAlkalinity.Location = new System.Drawing.Point(159, 239);
             this.txtAlkalinity.Name = "txtAlkalinity";
-            this.txtAlkalinity.Size = new System.Drawing.Size(141, 25);
+            this.txtAlkalinity.Size = new System.Drawing.Size(138, 25);
             this.txtAlkalinity.TabIndex = 13;
             // 
             // label22
@@ -503,17 +503,17 @@
             this.label22.AutoSize = true;
             this.label22.Location = new System.Drawing.Point(18, 242);
             this.label22.Name = "label22";
-            this.label22.Size = new System.Drawing.Size(64, 17);
+            this.label22.Size = new System.Drawing.Size(61, 17);
             this.label22.TabIndex = 12;
             this.label22.Text = "Alkalinity:";
             // 
             // txtAcidity
             // 
-            this.txtAcidity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtAcidity.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtAcidity.Location = new System.Drawing.Point(159, 208);
             this.txtAcidity.Name = "txtAcidity";
-            this.txtAcidity.Size = new System.Drawing.Size(141, 25);
+            this.txtAcidity.Size = new System.Drawing.Size(138, 25);
             this.txtAcidity.TabIndex = 11;
             // 
             // label21
@@ -521,17 +521,17 @@
             this.label21.AutoSize = true;
             this.label21.Location = new System.Drawing.Point(18, 211);
             this.label21.Name = "label21";
-            this.label21.Size = new System.Drawing.Size(50, 17);
+            this.label21.Size = new System.Drawing.Size(49, 17);
             this.label21.TabIndex = 10;
             this.label21.Text = "Acidity:";
             // 
             // txtDrybasisContent
             // 
-            this.txtDrybasisContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtDrybasisContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtDrybasisContent.Location = new System.Drawing.Point(159, 177);
             this.txtDrybasisContent.Name = "txtDrybasisContent";
-            this.txtDrybasisContent.Size = new System.Drawing.Size(141, 25);
+            this.txtDrybasisContent.Size = new System.Drawing.Size(138, 25);
             this.txtDrybasisContent.TabIndex = 9;
             // 
             // label20
@@ -545,11 +545,11 @@
             // 
             // txtNitrogenContent
             // 
-            this.txtNitrogenContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtNitrogenContent.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNitrogenContent.Location = new System.Drawing.Point(159, 146);
             this.txtNitrogenContent.Name = "txtNitrogenContent";
-            this.txtNitrogenContent.Size = new System.Drawing.Size(141, 25);
+            this.txtNitrogenContent.Size = new System.Drawing.Size(138, 25);
             this.txtNitrogenContent.TabIndex = 7;
             // 
             // label19
@@ -557,17 +557,17 @@
             this.label19.AutoSize = true;
             this.label19.Location = new System.Drawing.Point(18, 149);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(71, 17);
+            this.label19.Size = new System.Drawing.Size(58, 17);
             this.label19.TabIndex = 6;
             this.label19.Text = "ไนโตรเจน:";
             // 
             // txtS
             // 
-            this.txtS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtS.Location = new System.Drawing.Point(159, 115);
             this.txtS.Name = "txtS";
-            this.txtS.Size = new System.Drawing.Size(141, 25);
+            this.txtS.Size = new System.Drawing.Size(138, 25);
             this.txtS.TabIndex = 5;
             // 
             // label18
@@ -575,17 +575,17 @@
             this.label18.AutoSize = true;
             this.label18.Location = new System.Drawing.Point(18, 118);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(56, 17);
+            this.label18.Size = new System.Drawing.Size(51, 17);
             this.label18.TabIndex = 4;
             this.label18.Text = "ซัลเฟอร์:";
             // 
             // txtF
             // 
-            this.txtF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtF.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtF.Location = new System.Drawing.Point(159, 84);
             this.txtF.Name = "txtF";
-            this.txtF.Size = new System.Drawing.Size(141, 25);
+            this.txtF.Size = new System.Drawing.Size(138, 25);
             this.txtF.TabIndex = 3;
             // 
             // label17
@@ -593,17 +593,17 @@
             this.label17.AutoSize = true;
             this.label17.Location = new System.Drawing.Point(18, 87);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(62, 17);
+            this.label17.Size = new System.Drawing.Size(55, 17);
             this.label17.TabIndex = 2;
             this.label17.Text = "ฟลูออรีน:";
             // 
             // txtCL
             // 
-            this.txtCL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtCL.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCL.Location = new System.Drawing.Point(159, 53);
             this.txtCL.Name = "txtCL";
-            this.txtCL.Size = new System.Drawing.Size(141, 25);
+            this.txtCL.Size = new System.Drawing.Size(138, 25);
             this.txtCL.TabIndex = 1;
             // 
             // label16
@@ -611,7 +611,7 @@
             this.label16.AutoSize = true;
             this.label16.Location = new System.Drawing.Point(18, 56);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(51, 17);
+            this.label16.Size = new System.Drawing.Size(46, 17);
             this.label16.TabIndex = 0;
             this.label16.Text = "คลอรีน:";
             // 
@@ -621,10 +621,10 @@
             this.panelReaction.Controls.Add(this.chkNitrite);
             this.panelReaction.Controls.Add(this.chkFreeChlorine);
             this.panelReaction.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelReaction.Location = new System.Drawing.Point(343, 398);
+            this.panelReaction.Location = new System.Drawing.Point(346, 423);
             this.panelReaction.Margin = new System.Windows.Forms.Padding(8, 3, 8, 8);
             this.panelReaction.Name = "panelReaction";
-            this.panelReaction.Size = new System.Drawing.Size(310, 175);
+            this.panelReaction.Size = new System.Drawing.Size(310, 187);
             this.panelReaction.TabIndex = 1;
             // 
             // chkCyanide
@@ -632,7 +632,7 @@
             this.chkCyanide.AutoSize = true;
             this.chkCyanide.Location = new System.Drawing.Point(21, 93);
             this.chkCyanide.Name = "chkCyanide";
-            this.chkCyanide.Size = new System.Drawing.Size(77, 21);
+            this.chkCyanide.Size = new System.Drawing.Size(73, 21);
             this.chkCyanide.TabIndex = 2;
             this.chkCyanide.Text = "ไซยาไนด์";
             this.chkCyanide.UseVisualStyleBackColor = true;
@@ -642,7 +642,7 @@
             this.chkNitrite.AutoSize = true;
             this.chkNitrite.Location = new System.Drawing.Point(21, 66);
             this.chkNitrite.Name = "chkNitrite";
-            this.chkNitrite.Size = new System.Drawing.Size(71, 21);
+            this.chkNitrite.Size = new System.Drawing.Size(64, 21);
             this.chkNitrite.TabIndex = 1;
             this.chkNitrite.Text = "ไนไตรท์";
             this.chkNitrite.UseVisualStyleBackColor = true;
@@ -652,7 +652,7 @@
             this.chkFreeChlorine.AutoSize = true;
             this.chkFreeChlorine.Location = new System.Drawing.Point(21, 39);
             this.chkFreeChlorine.Name = "chkFreeChlorine";
-            this.chkFreeChlorine.Size = new System.Drawing.Size(64, 21);
+            this.chkFreeChlorine.Size = new System.Drawing.Size(62, 21);
             this.chkFreeChlorine.TabIndex = 0;
             this.chkFreeChlorine.Text = "คลอรีน";
             this.chkFreeChlorine.UseVisualStyleBackColor = true;
@@ -664,19 +664,19 @@
             this.panelHeat.Controls.Add(this.txtHeatingValue);
             this.panelHeat.Controls.Add(this.label14);
             this.panelHeat.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panelHeat.Location = new System.Drawing.Point(669, 398);
+            this.panelHeat.Location = new System.Drawing.Point(672, 423);
             this.panelHeat.Margin = new System.Windows.Forms.Padding(8, 3, 3, 8);
             this.panelHeat.Name = "panelHeat";
-            this.panelHeat.Size = new System.Drawing.Size(318, 175);
+            this.panelHeat.Size = new System.Drawing.Size(315, 187);
             this.panelHeat.TabIndex = 3;
             // 
             // txtNCVValue
             // 
-            this.txtNCVValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtNCVValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNCVValue.Location = new System.Drawing.Point(142, 89);
             this.txtNCVValue.Name = "txtNCVValue";
-            this.txtNCVValue.Size = new System.Drawing.Size(158, 25);
+            this.txtNCVValue.Size = new System.Drawing.Size(155, 25);
             this.txtNCVValue.TabIndex = 3;
             // 
             // label15
@@ -684,17 +684,17 @@
             this.label15.AutoSize = true;
             this.label15.Location = new System.Drawing.Point(18, 92);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(118, 17);
+            this.label15.Size = new System.Drawing.Size(109, 17);
             this.label15.TabIndex = 2;
             this.label15.Text = "ค่าความร้อน (NCV):";
             // 
             // txtHeatingValue
             // 
-            this.txtHeatingValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtHeatingValue.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHeatingValue.Location = new System.Drawing.Point(142, 58);
             this.txtHeatingValue.Name = "txtHeatingValue";
-            this.txtHeatingValue.Size = new System.Drawing.Size(158, 25);
+            this.txtHeatingValue.Size = new System.Drawing.Size(155, 25);
             this.txtHeatingValue.TabIndex = 1;
             // 
             // label14
@@ -702,7 +702,7 @@
             this.label14.AutoSize = true;
             this.label14.Location = new System.Drawing.Point(18, 61);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(119, 17);
+            this.label14.Size = new System.Drawing.Size(108, 17);
             this.label14.TabIndex = 0;
             this.label14.Text = "ค่าความร้อน (GCV):";
             // 
@@ -735,16 +735,16 @@
             this.panelHeavyMetal.Margin = new System.Windows.Forms.Padding(3, 3, 8, 8);
             this.panelHeavyMetal.Name = "panelHeavyMetal";
             this.dataLayout.SetRowSpan(this.panelHeavyMetal, 2);
-            this.panelHeavyMetal.Size = new System.Drawing.Size(312, 449);
+            this.panelHeavyMetal.Size = new System.Drawing.Size(315, 484);
             this.panelHeavyMetal.TabIndex = 5;
             // 
             // txtCu
             // 
-            this.txtCu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtCu.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtCu.Location = new System.Drawing.Point(127, 394);
             this.txtCu.Name = "txtCu";
-            this.txtCu.Size = new System.Drawing.Size(167, 25);
+            this.txtCu.Size = new System.Drawing.Size(170, 25);
             this.txtCu.TabIndex = 23;
             // 
             // label34
@@ -752,17 +752,17 @@
             this.label34.AutoSize = true;
             this.label34.Location = new System.Drawing.Point(18, 397);
             this.label34.Name = "label34";
-            this.label34.Size = new System.Drawing.Size(62, 17);
+            this.label34.Size = new System.Drawing.Size(49, 17);
             this.label34.TabIndex = 22;
             this.label34.Text = "ทองแดง:";
             // 
             // txtZn
             // 
-            this.txtZn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtZn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtZn.Location = new System.Drawing.Point(127, 363);
             this.txtZn.Name = "txtZn";
-            this.txtZn.Size = new System.Drawing.Size(167, 25);
+            this.txtZn.Size = new System.Drawing.Size(170, 25);
             this.txtZn.TabIndex = 21;
             // 
             // label33
@@ -770,17 +770,17 @@
             this.label33.AutoSize = true;
             this.label33.Location = new System.Drawing.Point(18, 366);
             this.label33.Name = "label33";
-            this.label33.Size = new System.Drawing.Size(51, 17);
+            this.label33.Size = new System.Drawing.Size(41, 17);
             this.label33.TabIndex = 20;
             this.label33.Text = "สังกะสี:";
             // 
             // txtMn
             // 
-            this.txtMn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtMn.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMn.Location = new System.Drawing.Point(127, 332);
             this.txtMn.Name = "txtMn";
-            this.txtMn.Size = new System.Drawing.Size(167, 25);
+            this.txtMn.Size = new System.Drawing.Size(170, 25);
             this.txtMn.TabIndex = 19;
             // 
             // label32
@@ -788,17 +788,17 @@
             this.label32.AutoSize = true;
             this.label32.Location = new System.Drawing.Point(18, 335);
             this.label32.Name = "label32";
-            this.label32.Size = new System.Drawing.Size(66, 17);
+            this.label32.Size = new System.Drawing.Size(57, 17);
             this.label32.TabIndex = 18;
             this.label32.Text = "แมงกานีส:";
             // 
             // txtNi
             // 
-            this.txtNi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtNi.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtNi.Location = new System.Drawing.Point(127, 301);
             this.txtNi.Name = "txtNi";
-            this.txtNi.Size = new System.Drawing.Size(167, 25);
+            this.txtNi.Size = new System.Drawing.Size(170, 25);
             this.txtNi.TabIndex = 17;
             // 
             // label31
@@ -806,17 +806,17 @@
             this.label31.AutoSize = true;
             this.label31.Location = new System.Drawing.Point(18, 304);
             this.label31.Name = "label31";
-            this.label31.Size = new System.Drawing.Size(39, 17);
+            this.label31.Size = new System.Drawing.Size(36, 17);
             this.label31.TabIndex = 16;
             this.label31.Text = "นิเกิล:";
             // 
             // txtTDS
             // 
-            this.txtTDS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtTDS.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtTDS.Location = new System.Drawing.Point(127, 270);
             this.txtTDS.Name = "txtTDS";
-            this.txtTDS.Size = new System.Drawing.Size(167, 25);
+            this.txtTDS.Size = new System.Drawing.Size(170, 25);
             this.txtTDS.TabIndex = 15;
             // 
             // label30
@@ -824,17 +824,17 @@
             this.label30.AutoSize = true;
             this.label30.Location = new System.Drawing.Point(18, 273);
             this.label30.Name = "label30";
-            this.label30.Size = new System.Drawing.Size(35, 17);
+            this.label30.Size = new System.Drawing.Size(34, 17);
             this.label30.TabIndex = 14;
             this.label30.Text = "TDS:";
             // 
             // txtHeavyFe
             // 
-            this.txtHeavyFe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtHeavyFe.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHeavyFe.Location = new System.Drawing.Point(127, 239);
             this.txtHeavyFe.Name = "txtHeavyFe";
-            this.txtHeavyFe.Size = new System.Drawing.Size(167, 25);
+            this.txtHeavyFe.Size = new System.Drawing.Size(170, 25);
             this.txtHeavyFe.TabIndex = 13;
             // 
             // label29
@@ -842,17 +842,17 @@
             this.label29.AutoSize = true;
             this.label29.Location = new System.Drawing.Point(18, 242);
             this.label29.Name = "label29";
-            this.label29.Size = new System.Drawing.Size(39, 17);
+            this.label29.Size = new System.Drawing.Size(36, 17);
             this.label29.TabIndex = 12;
             this.label29.Text = "เหล็ก:";
             // 
             // txtHeavyPb
             // 
-            this.txtHeavyPb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtHeavyPb.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHeavyPb.Location = new System.Drawing.Point(127, 208);
             this.txtHeavyPb.Name = "txtHeavyPb";
-            this.txtHeavyPb.Size = new System.Drawing.Size(167, 25);
+            this.txtHeavyPb.Size = new System.Drawing.Size(170, 25);
             this.txtHeavyPb.TabIndex = 11;
             // 
             // label28
@@ -860,17 +860,17 @@
             this.label28.AutoSize = true;
             this.label28.Location = new System.Drawing.Point(18, 211);
             this.label28.Name = "label28";
-            this.label28.Size = new System.Drawing.Size(42, 17);
+            this.label28.Size = new System.Drawing.Size(35, 17);
             this.label28.TabIndex = 10;
             this.label28.Text = "ตะกั่ว:";
             // 
             // txtHeavyHg
             // 
-            this.txtHeavyHg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtHeavyHg.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHeavyHg.Location = new System.Drawing.Point(127, 177);
             this.txtHeavyHg.Name = "txtHeavyHg";
-            this.txtHeavyHg.Size = new System.Drawing.Size(167, 25);
+            this.txtHeavyHg.Size = new System.Drawing.Size(170, 25);
             this.txtHeavyHg.TabIndex = 9;
             // 
             // label27
@@ -878,17 +878,17 @@
             this.label27.AutoSize = true;
             this.label27.Location = new System.Drawing.Point(18, 180);
             this.label27.Name = "label27";
-            this.label27.Size = new System.Drawing.Size(44, 17);
+            this.label27.Size = new System.Drawing.Size(39, 17);
             this.label27.TabIndex = 8;
             this.label27.Text = "ปรอท:";
             // 
             // txtHeavyCr
             // 
-            this.txtHeavyCr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtHeavyCr.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHeavyCr.Location = new System.Drawing.Point(127, 146);
             this.txtHeavyCr.Name = "txtHeavyCr";
-            this.txtHeavyCr.Size = new System.Drawing.Size(167, 25);
+            this.txtHeavyCr.Size = new System.Drawing.Size(170, 25);
             this.txtHeavyCr.TabIndex = 7;
             // 
             // label26
@@ -896,17 +896,17 @@
             this.label26.AutoSize = true;
             this.label26.Location = new System.Drawing.Point(18, 149);
             this.label26.Name = "label26";
-            this.label26.Size = new System.Drawing.Size(61, 17);
+            this.label26.Size = new System.Drawing.Size(53, 17);
             this.label26.TabIndex = 6;
             this.label26.Text = "โครเมียม:";
             // 
             // txtHeavyCd
             // 
-            this.txtHeavyCd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtHeavyCd.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHeavyCd.Location = new System.Drawing.Point(127, 115);
             this.txtHeavyCd.Name = "txtHeavyCd";
-            this.txtHeavyCd.Size = new System.Drawing.Size(167, 25);
+            this.txtHeavyCd.Size = new System.Drawing.Size(170, 25);
             this.txtHeavyCd.TabIndex = 5;
             // 
             // label25
@@ -914,17 +914,17 @@
             this.label25.AutoSize = true;
             this.label25.Location = new System.Drawing.Point(18, 118);
             this.label25.Name = "label25";
-            this.label25.Size = new System.Drawing.Size(64, 17);
+            this.label25.Size = new System.Drawing.Size(55, 17);
             this.label25.TabIndex = 4;
             this.label25.Text = "แคดเมียม:";
             // 
             // txtHeavyAs
             // 
-            this.txtHeavyAs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtHeavyAs.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtHeavyAs.Location = new System.Drawing.Point(127, 84);
             this.txtHeavyAs.Name = "txtHeavyAs";
-            this.txtHeavyAs.Size = new System.Drawing.Size(167, 25);
+            this.txtHeavyAs.Size = new System.Drawing.Size(170, 25);
             this.txtHeavyAs.TabIndex = 3;
             // 
             // label24
@@ -932,7 +932,7 @@
             this.label24.AutoSize = true;
             this.label24.Location = new System.Drawing.Point(18, 87);
             this.label24.Name = "label24";
-            this.label24.Size = new System.Drawing.Size(56, 17);
+            this.label24.Size = new System.Drawing.Size(48, 17);
             this.label24.TabIndex = 2;
             this.label24.Text = "อะเซนิก:";
             // 
@@ -943,7 +943,7 @@
             this.statusLabel,
             this.springLabel,
             this.helpDropDownButton});
-            this.statusStrip1.Location = new System.Drawing.Point(0, 659);
+            this.statusStrip1.Location = new System.Drawing.Point(0, 707);
             this.statusStrip1.Name = "statusStrip1";
             this.statusStrip1.Size = new System.Drawing.Size(1008, 22);
             this.statusStrip1.TabIndex = 1;
@@ -952,7 +952,7 @@
             // versionLabel
             // 
             this.versionLabel.Name = "versionLabel";
-            this.versionLabel.Size = new System.Drawing.Size(45, 17);
+            this.versionLabel.Size = new System.Drawing.Size(46, 17);
             this.versionLabel.Text = "v1.0.0.0";
             this.versionLabel.TextAlign = System.Drawing.ContentAlignment.MiddleLeft;
             // 
@@ -965,7 +965,7 @@
             // springLabel
             // 
             this.springLabel.Name = "springLabel";
-            this.springLabel.Size = new System.Drawing.Size(869, 17);
+            this.springLabel.Size = new System.Drawing.Size(891, 17);
             this.springLabel.Spring = true;
             // 
             // helpDropDownButton
@@ -974,23 +974,22 @@
             this.helpDropDownButton.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.userManualMenuItem,
             this.devManualMenuItem});
-            this.helpDropDownButton.Image = ((System.Drawing.Image)(resources.GetObject("helpDropDownButton.Image")));
             this.helpDropDownButton.ImageTransparentColor = System.Drawing.Color.Magenta;
             this.helpDropDownButton.Name = "helpDropDownButton";
-            this.helpDropDownButton.Size = new System.Drawing.Size(48, 20);
+            this.helpDropDownButton.Size = new System.Drawing.Size(40, 20);
             this.helpDropDownButton.Text = "คู่มือ";
             // 
             // userManualMenuItem
             // 
             this.userManualMenuItem.Name = "userManualMenuItem";
-            this.userManualMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.userManualMenuItem.Size = new System.Drawing.Size(148, 22);
             this.userManualMenuItem.Text = "สำหรับผู้ใช้งาน";
             this.userManualMenuItem.Click += new System.EventHandler(this.userManualMenuItem_Click);
             // 
             // devManualMenuItem
             // 
             this.devManualMenuItem.Name = "devManualMenuItem";
-            this.devManualMenuItem.Size = new System.Drawing.Size(154, 22);
+            this.devManualMenuItem.Size = new System.Drawing.Size(148, 22);
             this.devManualMenuItem.Text = "สำหรับนักพัฒนา";
             this.devManualMenuItem.Click += new System.EventHandler(this.devManualMenuItem_Click);
             // 
@@ -998,7 +997,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 17F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1008, 681);
+            this.ClientSize = new System.Drawing.Size(1008, 729);
             this.Controls.Add(this.mainTableLayout);
             this.Controls.Add(this.statusStrip1);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
