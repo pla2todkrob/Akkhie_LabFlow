@@ -19,6 +19,7 @@
 
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(SearchForm));
             this.labelWasteNo = new System.Windows.Forms.Label();
             this.txtWasteNo = new System.Windows.Forms.TextBox();
             this.btnSearch = new System.Windows.Forms.Button();
@@ -31,13 +32,13 @@
             this.labelWasteNo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelWasteNo.Location = new System.Drawing.Point(30, 35);
             this.labelWasteNo.Name = "labelWasteNo";
-            this.labelWasteNo.Size = new System.Drawing.Size(157, 20);
+            this.labelWasteNo.Size = new System.Drawing.Size(152, 20);
             this.labelWasteNo.TabIndex = 0;
             this.labelWasteNo.Text = "กรุณากรอกเลขที่ของเสีย:";
             // 
             // txtWasteNo
             // 
-            this.txtWasteNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left)
+            this.txtWasteNo.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtWasteNo.Font = new System.Drawing.Font("Segoe UI", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtWasteNo.Location = new System.Drawing.Point(34, 65);
@@ -81,6 +82,7 @@
             this.Controls.Add(this.labelWasteNo);
             this.Font = new System.Drawing.Font("Segoe UI", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.FixedDialog;
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(3, 4, 3, 4);
             this.MaximizeBox = false;
             this.MinimizeBox = false;
@@ -91,6 +93,7 @@
             this.Load += new System.EventHandler(this.SearchForm_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
+
         }
     }
 }
